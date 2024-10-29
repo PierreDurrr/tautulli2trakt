@@ -1,4 +1,7 @@
 ## WORKING AS OF 29/10/2024
+* TO-DO:
+  - downsize docker container
+  - find a better way to keep container alive
 
 <!-- PROJECT LOGO -->
 <br />
