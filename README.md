@@ -25,6 +25,8 @@
      * [Tautulli](#tautulli)
      * [Script Settings](#script-settings)
 * [Usage](#usage)
+* [Docker](#docker)
+   * [docker-compose example](#docker-compose-example)
 * [License](#license)
 * [Similar Projects](#similar-projects)
 
@@ -101,6 +103,21 @@ Run script for initial setup and follow instructions
 -i | --IMDB         IMDB ID
 -P | --progress     Percentage progress (Ex: 10.0)
 -h | --help         This help
+```
+
+## Docker
+### docker-compose example
+```yaml
+services:
+  tautulli2trakt:
+    image: pierredurrr/tautulli2trakt:latest
+    container_name: tautulli2trakt
+    restart: unless-stopped
+    environment:
+        - TZ=Europe/Paris
+    network_mode: bridge
+    volumes:
+      - /docker_data2/tautulli2trakt/config/:/tautulli2trakt
 ```
 
 ## FAQ & Troubleshooting
