@@ -1,19 +1,18 @@
-FROM python:3.10
+FROM python:3.10-alpine
 
-RUN apt-get -y update
-RUN apt-get -y install cron
+# Install cron and other required packages
+RUN apk --no-cache add \
+    bash \
+    cron
 
-# Setup directory and copying files
-WORKDIR /
-RUN mkdir app
+# Setup directory and copy files
 WORKDIR /app
 COPY ./start.sh ./start.sh
 COPY ./tautulli2trakt.sh ./tautulli2trakt.sh
-RUN chmod +x start.sh
+RUN chmod +x start.sh tautulli2trakt.sh
 
-# Install Python packages.
-RUN pip install --upgrade pip
+# Install Python packages
+RUN pip install --no-cache --upgrade pip
 
-RUN touch /var/log/cron.log
-
-CMD ./start.sh
+# Set entrypoint to the start script
+ENTRYPOINT ["./start.sh"]
