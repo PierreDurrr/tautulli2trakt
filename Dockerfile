@@ -3,6 +3,7 @@ FROM python:3.10-alpine
 # Install dcron (cron alternative) and bash
 RUN apk --no-cache add \
     bash \
+    curl \
     dcron
 
 # Setup directory and copy files
