@@ -12,7 +12,7 @@ mv /app/tautulli2trakt.sh /tautulli2trakt/tautulli2trakt.sh || {
 # rm -f /app/tautulli2trakt.sh
 
 # Export environment variables to /etc/default/locale for cron access (if cron is used)
-printenv > /etc/default/locale
+#printenv > /etc/default/locale
 
 # Keep the container running indefinitely
 tail -f /dev/null
